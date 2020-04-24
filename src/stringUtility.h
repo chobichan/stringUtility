@@ -21,6 +21,7 @@ extern "C"
 */
 bool isAlnumAndAny( const char *str );
 bool isDigitAndComma( const char *str );
+String binToHexString( uint32_t bin, int radix = 2 );
 
 
 #endif  /* _STRING_UTILITY_H_ */

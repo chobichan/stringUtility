@@ -5,7 +5,8 @@
 /***********************************************************************/
 #include  "stringUtility.h"
 
-extern "C"{
+extern "C"
+{
 }
 
 /**********************************************************/
@@ -63,9 +64,21 @@ bool isDigitAndComma( const char *str )
 /**********************************************************/
 /* binary to hex string.                                  */
 /**********************************************************/
-void binToHexString( uint32_t bin, char *str, int radix )
+String binToHexString( uint32_t bin, int radix )
 {
   static const char hex[] = "0123456789ABCDEF";
+  int mod = bin % 16;
+  String str = (String)hex[ mod ];
+  bin -= mod;
+
+  for( int i = 1; i < radix; i++ )
+  {
+    bin >>= 4;
+    mod = bin % 16;
+    str = (String)hex[ mod ] + str;
+  }
+
+  return str;
 }
 
 
