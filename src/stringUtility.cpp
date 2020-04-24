@@ -60,3 +60,12 @@ bool isDigitAndComma( const char *str )
   return true;
 }
 
+/**********************************************************/
+/* binary to hex string.                                  */
+/**********************************************************/
+void binToHexString( uint32_t bin, char *str, int radix )
+{
+  static const char hex[] = "0123456789ABCDEF";
+}
+
+
