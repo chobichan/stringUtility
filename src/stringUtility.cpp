@@ -62,7 +62,7 @@ bool isDigitAndComma( const char *str )
 }
 
 /**********************************************************/
-/* number  is true.                                       */
+/* number is true.                                        */
 /**********************************************************/
 bool isDigit( const char *str )
 {
@@ -186,4 +186,54 @@ char char2Char( const char *str )
   if( !*str ) return 0;
   return *str;
 }
+
+
+/**********************************************************/
+/* hex string to binary.                                  */
+/**********************************************************/
+uint32_t HexStringToBin( const char *str, int radix )
+{
+  uint32_t tempUL = 0UL;
+  for( int i = 0; i < radix; i++ )
+  {
+    if( *str >= '0' && *str <= '9' )
+    {
+      tempUL *= 16;
+      tempUL += *str - '0';
+    }
+    else if( toupper( *str ) >= 'A' && toupper( *str ) <= 'F' )
+    {
+      tempUL *= 16;
+      tempUL += toupper( *str ) - 'A' + 10;
+    }
+    else break;
+
+    str++;
+  }
+
+  return tempUL;
+}
+
+
+/**********************************************************/
+/* int string to binary.                                  */
+/**********************************************************/
+int32_t IntStringToBin( const char *str, int radix )
+{
+  int32_t tempL = 0L;
+  for( int i = 0; i < radix; i++ )
+  {
+    if( *str >= '0' && *str <= '9' )
+    {
+      tempL *= 10;
+      tempL += *str - '0';
+    }
+    else break;
+
+    str++;
+  }
+
+  return tempL;
+}
+
 

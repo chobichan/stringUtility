@@ -24,6 +24,9 @@ bool isDigitAndComma( const char *str );
 bool isDigit( const char *str );
 
 String binToHexString( uint32_t bin, int radix = 2 );
+uint32_t HexStringToBin( const char *str, int radix = 2 );
+int32_t  IntStringToBin( const char *str, int radix = 2 );
+
 String formatString( const char *fmt, ... );
 
 int split( char *str , char *argv[], int sz );
